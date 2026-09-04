@@ -1,0 +1,955 @@
+{
+    "active_deck": "diablo_beavers",
+    "decks": {
+        "diablo_beavers": {
+            "name": "Diablo / WoW Terraborn Beavers",
+            "template": "A masterpiece digital illustration of a tarot card representing **{card_name}**. The central subject is {subject_description}. \n\nArt Style & Theme: A fusion of dark, gothic grimdark atmosphere (Diablo) and bold, stylized heroic fantasy with oversized, intricate armor (World of Warcraft). Include visual motifs of \"Terraborn Beavers\"\u2014nature-attuned, earth-shaping humanoid beaver-folk with druidic or shamanistic elements. \n\nConsistent Formatting: Flat 2D tarot layout, perfectly centered composition. The character is framed within a highly ornate, weathered metallic border featuring dark fantasy gothic architecture and geometric Terraborn earth-runes. \n\nLighting & Color: Unified color grading using deep crimsons, shadowy blacks, earthy terrestrial browns, and glowing magical accents. Dramatic rim lighting, striking shadows, high contrast, sharp details, fantasy concept art style.",
+            "default_subject": "a Terraborn Beaver hero",
+            "cards": {
+                "The Fool": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Magician": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The High Priestess": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Empress": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Emperor": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Hierophant": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Lovers": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Chariot": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Strength": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Hermit": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Wheel of Fortune": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Justice": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Hanged Man": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Death": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Temperance": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Devil": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Tower": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Star": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Moon": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Sun": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Judgement": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The World": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Ace of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "2 of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "3 of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "4 of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "5 of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "6 of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "7 of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "8 of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "9 of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "10 of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "Page of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "Knight of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "Queen of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "King of Wands": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "Ace of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "2 of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "3 of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "4 of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "5 of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "6 of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "7 of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "8 of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "9 of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "10 of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "Page of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "Knight of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "Queen of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "King of Cups": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "Ace of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "2 of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "3 of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "4 of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "5 of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "6 of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "7 of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "8 of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "9 of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "10 of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "Page of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "Knight of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "Queen of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "King of Swords": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "Ace of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "2 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "3 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "4 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "5 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "6 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "7 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "8 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "9 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "10 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "Page of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "Knight of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "Queen of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "King of Pentacles": {
+                    "status": "pending",
+                    "subject": "a Terraborn Beaver hero",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                }
+            }
+        },
+        "cyberpunk_oracle": {
+            "name": "Cyberpunk Oracle",
+            "template": "A masterpiece digital illustration of a tarot card representing **{card_name}**. The central subject is {subject_description}.\n\nArt Style & Theme: Highly detailed fantasy illustration with rich symbolic elements reflecting the traditional archetype of the card.\n\nConsistent Formatting: Flat 2D tarot card frame, ornate decorative border, balanced composition.\n\nLighting & Color: Vibrant contrast, atmospheric lighting, and high-fidelity textures.",
+            "default_subject": "a cybernetic operative",
+            "cards": {
+                "The Fool": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Magician": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The High Priestess": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Empress": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Emperor": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Hierophant": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Lovers": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Chariot": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Strength": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Hermit": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Wheel of Fortune": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Justice": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Hanged Man": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Death": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Temperance": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Devil": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Tower": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Star": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Moon": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The Sun": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Judgement": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "The World": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "major",
+                    "suit": "Major Arcana"
+                },
+                "Ace of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "2 of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "3 of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "4 of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "5 of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "6 of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "7 of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "8 of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "9 of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "10 of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "Page of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "Knight of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "Queen of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "King of Wands": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Wands"
+                },
+                "Ace of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "2 of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "3 of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "4 of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "5 of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "6 of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "7 of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "8 of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "9 of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "10 of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "Page of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "Knight of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "Queen of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "King of Cups": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Cups"
+                },
+                "Ace of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "2 of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "3 of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "4 of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "5 of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "6 of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "7 of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "8 of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "9 of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "10 of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "Page of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "Knight of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "Queen of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "King of Swords": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Swords"
+                },
+                "Ace of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "2 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "3 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "4 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "5 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "6 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "7 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "8 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "9 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "10 of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "Page of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "Knight of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "Queen of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                },
+                "King of Pentacles": {
+                    "status": "pending",
+                    "subject": "a cybernetic operative",
+                    "arcana": "minor",
+                    "suit": "Pentacles"
+                }
+            }
+        }
+    }
+}

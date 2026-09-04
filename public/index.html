@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarot Deck Studio & Prompt Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="app-header">
+    <div class="brand-container">
+      <div class="brand-glyph">✦</div>
+      <div>
+        <h1 class="brand-title">TAROT STUDIO</h1>
+        <p class="brand-subtitle">Deck Builder & Prompt Tracker</p>
+      </div>
+    </div>
+
+    <div class="header-controls">
+      <div class="deck-selector-wrap">
+        <label for="deckSelect" class="selector-label">ACTIVE DECK</label>
+        <select id="deckSelect" class="deck-select">
+          <!-- Populated dynamically -->
+        </select>
+      </div>
+
+      <button id="btnNewDeck" class="btn btn-primary" title="Create a new deck concept">
+        <span class="btn-icon">+</span> New Deck Idea
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="main-container">
+
+    <!-- Completion Celebration Banner (Hidden by default) -->
+    <section id="completionBanner" class="completion-banner hidden">
+      <div class="celebration-content">
+        <div class="trophy-icon">🏆</div>
+        <div>
+          <h2>Deck 100% Completed!</h2>
+          <p>Every single one of the 78 Tarot cards has been generated and marked complete!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Grid: Focus Mode & Stats Dashboard -->
+    <section class="top-dashboard">
+
+      <!-- Focus Mode: Next Card in Queue -->
+      <div class="focus-card-panel card-panel">
+        <div class="panel-header">
+          <span class="section-tag"><span class="pulse-dot"></span> NEXT IN QUEUE</span>
+          <span id="focusArcanaBadge" class="badge badge-arcana">Major Arcana</span>
+        </div>
+
+        <div class="focus-body">
+          <h2 id="focusCardTitle" class="focus-title">The Fool</h2>
+          <p id="focusSubject" class="focus-subject">Subject: a Terraborn Beaver hero</p>
+
+          <!-- Model & Focus Recommendation Card -->
+          <div id="focusRecommendationCard" class="recommendation-card">
+            <div class="rec-header">
+              <span class="rec-title">💡 MODEL & ARTISTIC FOCUS RECOMMENDATION</span>
+              <span id="focusModelBadge" class="badge badge-model">FLUX.1 [dev]</span>
+            </div>
+            <div class="rec-body">
+              <div class="rec-row">
+                <span class="rec-label">Recommended Model:</span>
+                <span id="focusModelSpecialty" class="rec-val">...</span>
+              </div>
+              <div class="rec-row">
+                <span class="rec-label">Model Settings:</span>
+                <code id="focusModelSettings" class="font-mono rec-code">--ar 2:3</code>
+              </div>
+              <div class="rec-row">
+                <span class="rec-label">Symbolic Focus:</span>
+                <span id="focusArchetype" class="rec-val">...</span>
+              </div>
+              <div class="rec-row">
+                <span class="rec-label">Composition:</span>
+                <span id="focusComposition" class="rec-val">...</span>
+              </div>
+            </div>
+            <div class="rec-footer">
+              <button id="btnApplyFocus" type="button" class="btn btn-focus-apply" title="Inject the recommended focus directly into the card prompt">
+                ✦ Inject Focus into Prompt
+              </button>
+            </div>
+          </div>
+
+          <div class="prompt-box-wrapper">
+            <label class="prompt-label">Generation Prompt:</label>
+            <div id="focusPromptText" class="prompt-text">Loading prompt...</div>
+          </div>
+
+          <div class="focus-actions">
+            <button id="btnCopyFocusPrompt" class="btn btn-primary btn-glow">
+              <span class="btn-icon">📋</span> Copy Prompt
+            </button>
+            <button id="btnCompleteFocusCard" class="btn btn-success">
+              <span class="btn-icon">✓</span> Mark Done & Next
+            </button>
+            <button id="btnEditFocusCard" class="btn btn-secondary">
+              <span class="btn-icon">⚙</span> Edit Subject
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overall Completion & Analytics Panel -->
+      <div class="stats-panel card-panel">
+        <div class="panel-header">
+          <span class="section-tag">COMPLETION STATUS</span>
+          <span id="deckTotalBadge" class="badge">78 Cards</span>
+        </div>
+
+        <div class="stats-body">
+          <!-- Circular Progress Ring -->
+          <div class="radial-progress-container">
+            <svg class="progress-ring" width="130" height="130">
+              <circle class="progress-ring-bg" stroke="rgba(255,255,255,0.08)" stroke-width="10" fill="transparent" r="54" cx="65" cy="65" />
+              <circle id="progressRingCircle" class="progress-ring-fill" stroke="#eab308" stroke-width="10" stroke-dasharray="339.29" stroke-dashoffset="339.29" stroke-linecap="round" fill="transparent" r="54" cx="65" cy="65" />
+            </svg>
+            <div class="radial-text">
+              <span id="statPercentage" class="radial-number">0%</span>
+              <span class="radial-label">FINISHED</span>
+            </div>
+          </div>
+
+          <!-- Progress Details -->
+          <div class="progress-details">
+            <div class="metric-row">
+              <span class="metric-title">Completed Cards:</span>
+              <span id="statCardRatio" class="metric-value font-mono">0 / 78</span>
+            </div>
+
+            <div class="progress-bar-group">
+              <div class="bar-header">
+                <span>Major Arcana (0-XXI)</span>
+                <span id="statMajorRatio" class="font-mono">0 / 22</span>
+              </div>
+              <div class="bar-track">
+                <div id="barMajor" class="bar-fill bar-major" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div class="progress-bar-group">
+              <div class="bar-header">
+                <span>Minor Arcana (4 Suits)</span>
+                <span id="statMinorRatio" class="font-mono">0 / 56</span>
+              </div>
+              <div class="bar-track">
+                <div id="barMinor" class="bar-fill bar-minor" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-footer">
+          <button id="btnResetDeck" class="btn-text-danger" title="Reset all cards to pending">Reset All to Incomplete</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolbar: Search & Suit Filter Tabs -->
+    <section class="toolbar-section">
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Filter cards (e.g. Fool, Cups, Queen)..." autocomplete="off" />
+      </div>
+
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-filter="all">All (78)</button>
+        <button class="filter-tab" data-filter="pending">Incomplete (<span id="countPending">78</span>)</button>
+        <button class="filter-tab" data-filter="complete">Completed (<span id="countComplete">0</span>)</button>
+        <span class="tab-divider"></span>
+        <button class="filter-tab" data-filter="Major Arcana">Major Arcana</button>
+        <button class="filter-tab" data-filter="Wands">Wands</button>
+        <button class="filter-tab" data-filter="Cups">Cups</button>
+        <button class="filter-tab" data-filter="Swords">Swords</button>
+        <button class="filter-tab" data-filter="Pentacles">Pentacles</button>
+      </div>
+    </section>
+
+    <!-- 78-Card Deck Grid -->
+    <section class="deck-grid-section">
+      <div id="cardsGrid" class="cards-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal: Create New Deck Idea -->
+  <div id="newDeckModal" class="modal-backdrop hidden">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title">Create New Deck Idea</h2>
+        <button id="btnCloseModal" class="modal-close">&times;</button>
+      </div>
+      <form id="newDeckForm" class="modal-body">
+        <div class="form-group">
+          <label for="deckIdInput">Deck Identifier (slug):</label>
+          <input type="text" id="deckIdInput" required placeholder="e.g. cyberpunk_oracle" pattern="[a-zA-Z0-9_\-]+" />
+          <small>Alphanumeric with underscores/hyphens.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="deckNameInput">Display Title:</label>
+          <input type="text" id="deckNameInput" required placeholder="e.g. Cyberpunk Oracle" />
+        </div>
+
+        <div class="form-group">
+          <label for="presetSelect">Quick Theme Presets:</label>
+          <select id="presetSelect">
+            <option value="custom">-- Choose a Theme Preset or Custom --</option>
+            <option value="diablo">Diablo Grimdark & WoW Fantasy</option>
+            <option value="cyberpunk">Cyberpunk & Neon Synthwave</option>
+            <option value="gothic">Gothic Eldritch & Victorian Dark Fantasy</option>
+            <option value="solarpunk">Solarpunk Druidic & Brass Automata</option>
+            <option value="artnouveau">Alphonse Mucha Art Nouveau & Gold Foil</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="defaultSubjectInput">Default Character / Subject Archetype:</label>
+          <input type="text" id="defaultSubjectInput" placeholder="e.g. a cybernetic ronin operative" />
+        </div>
+
+        <div class="form-group">
+          <label for="templateInput">Visual Style Master Template:</label>
+          <textarea id="templateInput" rows="6" required></textarea>
+          <small>Must include placeholders <code>{card_name}</code> and <code>{subject_description}</code>.</small>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="btnCancelNewDeck" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create 78-Card Deck</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Card Inspector / Subject Editor -->
+  <div id="cardInspectModal" class="modal-backdrop hidden">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 id="inspectCardName" class="modal-title">The Fool</h2>
+        <button id="btnCloseInspectModal" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Card Classification:</label>
+          <div id="inspectClassification" class="badge">Major Arcana</div>
+        </div>
+
+        <!-- Archetype & Model Recommendation Box -->
+        <div id="inspectRecommendationBox" class="recommendation-card">
+          <div class="rec-header">
+            <span class="rec-title">💡 MODEL & SYMBOLIC GUIDANCE</span>
+            <span id="inspectModelBadge" class="badge badge-model">FLUX.1 [dev]</span>
+          </div>
+          <div class="rec-body">
+            <div class="rec-row">
+              <span class="rec-label">Recommended Model:</span>
+              <span id="inspectModelText" class="rec-val">...</span>
+            </div>
+            <div class="rec-row">
+              <span class="rec-label">Archetypal Symbols:</span>
+              <span id="inspectSymbolsText" class="rec-val">...</span>
+            </div>
+            <div class="rec-row">
+              <span class="rec-label">Composition Cue:</span>
+              <span id="inspectCompositionText" class="rec-val">...</span>
+            </div>
+          </div>
+          <div class="rec-footer">
+            <button id="btnApplyInspectFocus" type="button" class="btn btn-focus-apply" title="Replace subject with recommended focus">
+              ✦ Use Recommended Focus as Subject
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inspectSubjectInput">Card-Specific Subject Description:</label>
+          <input type="text" id="inspectSubjectInput" />
+          <small>Customize what is depicted for this specific card.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="inspectImageInput">Attached Image (URL or Local Path):</label>
+          <input type="text" id="inspectImageInput" placeholder="e.g. https://... or /images/the_fool.png" />
+        </div>
+
+        <div class="form-group">
+          <label>Full Generation Prompt:</label>
+          <div id="inspectPromptDisplay" class="prompt-text"></div>
+        </div>
+
+        <div class="modal-actions">
+          <button id="btnCopyInspectPrompt" type="button" class="btn btn-primary">
+            <span class="btn-icon">📋</span> Copy Prompt
+          </button>
+          <button id="btnSaveCardDetails" type="button" class="btn btn-success">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
