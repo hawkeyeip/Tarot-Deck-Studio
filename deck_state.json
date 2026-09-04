@@ -951,5 +951,6 @@
                 }
             }
         }
-    }
+    },
+    "target_generator": "gemini_nanobanana"
 }

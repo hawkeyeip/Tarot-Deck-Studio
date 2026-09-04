@@ -120,7 +120,7 @@ const btnSaveCardDetails = document.getElementById("btnSaveCardDetails");
 const focusRecommendationCard = document.getElementById("focusRecommendationCard");
 const focusModelBadge = document.getElementById("focusModelBadge");
 const focusModelSpecialty = document.getElementById("focusModelSpecialty");
-const focusModelSettings = document.getElementById("focusModelSettings");
+const focusModelGuidance = document.getElementById("focusModelGuidance");
 const focusArchetype = document.getElementById("focusArchetype");
 const focusComposition = document.getElementById("focusComposition");
 const btnApplyFocus = document.getElementById("btnApplyFocus");
@@ -131,6 +131,26 @@ const inspectModelText = document.getElementById("inspectModelText");
 const inspectSymbolsText = document.getElementById("inspectSymbolsText");
 const inspectCompositionText = document.getElementById("inspectCompositionText");
 const btnApplyInspectFocus = document.getElementById("btnApplyInspectFocus");
+
+// Generator Selector
+const generatorSelect = document.getElementById("generatorSelect");
+
+// Vault Elements
+const btnOpenVault = document.getElementById("btnOpenVault");
+const vaultModal = document.getElementById("vaultModal");
+const btnCloseVaultModal = document.getElementById("btnCloseVaultModal");
+const btnCreateSnapshot = document.getElementById("btnCreateSnapshot");
+const btnExportVault = document.getElementById("btnExportVault");
+const importFileInput = document.getElementById("importFileInput");
+const vaultTableBody = document.getElementById("vaultTableBody");
+const vaultStatsText = document.getElementById("vaultStatsText");
+const vaultCountBadge = document.getElementById("vaultCountBadge");
+
+// Revision Elements
+const btnToggleRevisions = document.getElementById("btnToggleRevisions");
+const inspectRevisionsContainer = document.getElementById("inspectRevisionsContainer");
+const inspectRevisionCount = document.getElementById("inspectRevisionCount");
+const revisionsArrow = document.getElementById("revisionsArrow");
 
 let inspectingCardName = null;
 
@@ -150,6 +170,11 @@ async function fetchDecks() {
       opt.textContent = `${deck.name} (${deck.completed}/${deck.total} - ${deck.percentage}%)`;
       deckSelect.appendChild(opt);
     });
+
+    // Sync generator selector with server state
+    if (data.target_generator && generatorSelect) {
+      generatorSelect.value = data.target_generator;
+    }
 
     const activeId = data.active_deck || (data.decks[0] ? data.decks[0].id : "diablo_beavers");
     deckSelect.value = activeId;
@@ -212,7 +237,7 @@ function renderFocusCard() {
     focusModelBadge.style.borderColor = rec.model_badge_color;
 
     focusModelSpecialty.textContent = rec.model_rationale;
-    focusModelSettings.textContent = rec.recommended_settings;
+    if (focusModelGuidance) focusModelGuidance.textContent = rec.model_guidance || "Portrait 2:3 Tarot Framing";
     focusArchetype.textContent = `${rec.archetype} — ${rec.symbols}`;
     focusComposition.textContent = `${rec.composition} | Lighting: ${rec.lighting}`;
   } else if (focusRecommendationCard) {
@@ -474,21 +499,62 @@ function openInspectModal(cardName, cardData, prompt) {
     inspectModelBadge.style.background = rec.model_badge_bg;
     inspectModelBadge.style.borderColor = rec.model_badge_color;
 
-    inspectModelText.textContent = `${rec.recommended_model} (${rec.recommended_settings}) — ${rec.model_rationale}`;
+    inspectModelText.textContent = `${rec.recommended_model} — ${rec.model_rationale}`;
     inspectSymbolsText.textContent = `${rec.archetype}: ${rec.symbols}`;
     inspectCompositionText.textContent = `${rec.composition} | Lighting: ${rec.lighting}`;
 
     btnApplyInspectFocus.onclick = () => {
       inspectSubjectInput.value = rec.suggested_subject_focus;
-      // Also update prompt preview live
-      const newPrompt = currentDeckData.template
-        .replace(/{card_name}/g, cardName)
-        .replace(/{subject_description}/g, rec.suggested_subject_focus);
-      inspectPromptDisplay.textContent = newPrompt;
+      inspectPromptDisplay.textContent = `Focus applied: ${rec.suggested_subject_focus}`;
       showToast(`Applied archetype focus to subject input!`);
     };
   } else if (inspectRecommendationBox) {
     inspectRecommendationBox.classList.add("hidden");
+  }
+
+  // Render Revision History
+  const revisions = cardData.revisions || [];
+  if (inspectRevisionCount) inspectRevisionCount.textContent = revisions.length;
+  if (inspectRevisionsContainer) {
+    inspectRevisionsContainer.classList.add("hidden");
+    if (revisionsArrow) revisionsArrow.textContent = "▾";
+    inspectRevisionsContainer.innerHTML = "";
+    if (revisions.length === 0) {
+      inspectRevisionsContainer.innerHTML = '<div style="color: #64748b; font-size: 11px; padding: 8px;">No previous revisions recorded yet.</div>';
+    } else {
+      revisions.slice().reverse().forEach((rev, displayIdx) => {
+        const realIdx = revisions.length - 1 - displayIdx;
+        const item = document.createElement("div");
+        item.className = "revision-item";
+        item.innerHTML = `
+          <div>
+            <div class="revision-meta">${rev.timestamp} · ${rev.reason || "edit"}</div>
+            <div class="revision-subj" title="${rev.subject}">${rev.subject}</div>
+          </div>
+          <button class="btn-revert" data-rev-idx="${realIdx}">Revert</button>
+        `;
+        item.querySelector(".btn-revert").addEventListener("click", async () => {
+          try {
+            const res = await fetch("/api/cards/revert", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                deck_id: currentDeckData.id,
+                card_name: cardName,
+                revision_index: realIdx
+              })
+            });
+            if (!res.ok) throw new Error("Could not revert");
+            showToast(`Reverted ${cardName} to previous subject!`);
+            cardInspectModal.classList.add("hidden");
+            await loadDeck(currentDeckData.id);
+          } catch (err) {
+            showToast("Error: " + err.message);
+          }
+        });
+        inspectRevisionsContainer.appendChild(item);
+      });
+    }
   }
 
   cardInspectModal.classList.remove("hidden");
@@ -615,7 +681,172 @@ filterTabs.addEventListener("click", (e) => {
   }
 });
 
+// ==========================================================================
+// GENERATOR SELECTOR
+// ==========================================================================
+
+if (generatorSelect) {
+  generatorSelect.addEventListener("change", async () => {
+    const newModel = generatorSelect.value;
+    try {
+      await fetch("/api/settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ target_generator: newModel })
+      });
+      showToast(`Target generator set to: ${generatorSelect.options[generatorSelect.selectedIndex].text}`);
+      if (currentDeckData) await loadDeck(currentDeckData.id);
+    } catch (err) {
+      showToast("Error: " + err.message);
+    }
+  });
+}
+
+// ==========================================================================
+// REVISION TOGGLE
+// ==========================================================================
+
+if (btnToggleRevisions) {
+  btnToggleRevisions.addEventListener("click", () => {
+    if (inspectRevisionsContainer) {
+      inspectRevisionsContainer.classList.toggle("hidden");
+      if (revisionsArrow) {
+        revisionsArrow.textContent = inspectRevisionsContainer.classList.contains("hidden") ? "▾" : "▴";
+      }
+    }
+  });
+}
+
+// ==========================================================================
+// VAULT MODAL & BACKUP MANAGEMENT
+// ==========================================================================
+
+async function loadVaultData() {
+  try {
+    const res = await fetch("/api/backups");
+    const data = await res.json();
+    const backups = data.backups || [];
+
+    if (vaultCountBadge) vaultCountBadge.textContent = backups.length;
+
+    if (vaultStatsText) {
+      const totalSize = backups.reduce((sum, b) => sum + b.size_kb, 0);
+      vaultStatsText.textContent = `${backups.length} snapshot(s) stored · ${totalSize.toFixed(1)} KB total`;
+    }
+
+    if (vaultTableBody) {
+      vaultTableBody.innerHTML = "";
+      if (backups.length === 0) {
+        vaultTableBody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#64748b;">No snapshots yet. Snapshots are created automatically on every save.</td></tr>';
+      } else {
+        backups.forEach(b => {
+          const tr = document.createElement("tr");
+          const pct = b.total_cards > 0 ? Math.round((b.completed_cards / b.total_cards) * 100) : 0;
+          tr.innerHTML = `
+            <td>${b.timestamp}</td>
+            <td style="font-family:monospace;font-size:11px;">${b.filename}</td>
+            <td>${b.deck_count}</td>
+            <td>${b.completed_cards}/${b.total_cards} (${pct}%)</td>
+            <td>${b.size_kb} KB</td>
+            <td>
+              <button class="btn-table-action btn-restore" data-file="${b.filename}">Restore</button>
+            </td>
+          `;
+          tr.querySelector(".btn-restore").addEventListener("click", async () => {
+            if (!confirm(`Restore from snapshot "${b.filename}"?\n\nA safety backup of your current state will be created first.`)) return;
+            try {
+              const rRes = await fetch("/api/backups/restore", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ filename: b.filename })
+              });
+              if (!rRes.ok) throw new Error("Restore failed");
+              showToast(`Restored from ${b.filename}!`);
+              vaultModal.classList.add("hidden");
+              await fetchDecks();
+            } catch (err) {
+              showToast("Error: " + err.message);
+            }
+          });
+          vaultTableBody.appendChild(tr);
+        });
+      }
+    }
+  } catch (err) {
+    showToast("Error loading vault: " + err.message);
+  }
+}
+
+if (btnOpenVault) {
+  btnOpenVault.addEventListener("click", () => {
+    vaultModal.classList.remove("hidden");
+    loadVaultData();
+  });
+}
+
+if (btnCloseVaultModal) {
+  btnCloseVaultModal.addEventListener("click", () => vaultModal.classList.add("hidden"));
+}
+
+// Close vault modal on backdrop click
+if (vaultModal) {
+  vaultModal.querySelector(".modal-backdrop")?.addEventListener("click", () => vaultModal.classList.add("hidden"));
+}
+
+if (btnCreateSnapshot) {
+  btnCreateSnapshot.addEventListener("click", async () => {
+    try {
+      const res = await fetch("/api/backups/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ label: "manual" })
+      });
+      if (!res.ok) throw new Error("Failed to create snapshot");
+      const data = await res.json();
+      showToast(`Snapshot created: ${data.snapshot.filename}`);
+      loadVaultData();
+    } catch (err) {
+      showToast("Error: " + err.message);
+    }
+  });
+}
+
+if (btnExportVault) {
+  btnExportVault.addEventListener("click", () => {
+    window.location.href = "/api/backups/export";
+    showToast("Downloading vault export...");
+  });
+}
+
+if (importFileInput) {
+  importFileInput.addEventListener("change", async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    try {
+      const text = await file.text();
+      const database = JSON.parse(text);
+      if (!confirm(`Import backup from "${file.name}"?\n\nThis will replace your current database. A safety backup will be created first.`)) return;
+      const res = await fetch("/api/backups/import", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ database })
+      });
+      if (!res.ok) throw new Error("Import failed");
+      showToast("Database imported successfully!");
+      vaultModal.classList.add("hidden");
+      await fetchDecks();
+    } catch (err) {
+      showToast("Error: " + err.message);
+    }
+    importFileInput.value = "";
+  });
+}
+
 // Initial boot
 window.addEventListener("DOMContentLoaded", () => {
   fetchDecks();
+  // Load vault count badge
+  fetch("/api/backups").then(r => r.json()).then(d => {
+    if (vaultCountBadge) vaultCountBadge.textContent = (d.backups || []).length;
+  }).catch(() => {});
 });

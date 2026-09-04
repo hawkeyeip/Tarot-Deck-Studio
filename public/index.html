@@ -28,6 +28,21 @@
         </select>
       </div>
 
+      <div class="model-selector-wrap">
+        <label for="generatorSelect" class="selector-label">TARGET GENERATOR</label>
+        <select id="generatorSelect" class="deck-select model-select">
+          <option value="gemini_nanobanana" selected>Gemini (Nano Banana / Imagen 3)</option>
+          <option value="dalle3">DALL-E 3 (ChatGPT)</option>
+          <option value="flux_dev">FLUX.1 [dev]</option>
+          <option value="universal">Universal Multimodal</option>
+          <option value="midjourney_v6">Midjourney v6.1 (Legacy)</option>
+        </select>
+      </div>
+
+      <button id="btnOpenVault" class="btn btn-secondary btn-vault" title="Persistent Memory Vault & Automated Backups">
+        <span class="btn-icon">🛡️</span> Vault <span id="vaultCountBadge" class="badge-counter">0</span>
+      </button>
+
       <button id="btnNewDeck" class="btn btn-primary" title="Create a new deck concept">
         <span class="btn-icon">+</span> New Deck Idea
       </button>
@@ -66,16 +81,16 @@
           <div id="focusRecommendationCard" class="recommendation-card">
             <div class="rec-header">
               <span class="rec-title">💡 MODEL & ARTISTIC FOCUS RECOMMENDATION</span>
-              <span id="focusModelBadge" class="badge badge-model">FLUX.1 [dev]</span>
+              <span id="focusModelBadge" class="badge badge-model">Gemini (Nano Banana)</span>
             </div>
             <div class="rec-body">
               <div class="rec-row">
-                <span class="rec-label">Recommended Model:</span>
+                <span class="rec-label">Target Generator:</span>
                 <span id="focusModelSpecialty" class="rec-val">...</span>
               </div>
               <div class="rec-row">
-                <span class="rec-label">Model Settings:</span>
-                <code id="focusModelSettings" class="font-mono rec-code">--ar 2:3</code>
+                <span class="rec-label">Framing & Guidance:</span>
+                <span id="focusModelGuidance" class="rec-val rec-guidance">Portrait 2:3 Tarot Framing, Pure Natural Language Prose</span>
               </div>
               <div class="rec-row">
                 <span class="rec-label">Symbolic Focus:</span>
@@ -300,11 +315,77 @@
           <div id="inspectPromptDisplay" class="prompt-text"></div>
         </div>
 
+        <!-- Persistent Memory: Card Revisions -->
+        <div class="form-group revisions-group">
+          <div class="revisions-header" id="btnToggleRevisions">
+            <span class="revisions-title">📜 Prompt & Subject Revisions (<span id="inspectRevisionCount">0</span>)</span>
+            <span id="revisionsArrow" class="revisions-arrow">▾</span>
+          </div>
+          <div id="inspectRevisionsContainer" class="revisions-container hidden">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
         <div class="modal-actions">
           <button id="btnCopyInspectPrompt" type="button" class="btn btn-primary">
             <span class="btn-icon">📋</span> Copy Prompt
           </button>
           <button id="btnSaveCardDetails" type="button" class="btn btn-success">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backup & Restore Vault Modal -->
+  <div id="vaultModal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content modal-vault">
+      <div class="modal-header">
+        <div class="vault-header-title">
+          <span class="vault-icon">🛡️</span>
+          <div>
+            <h2 class="modal-title">Persistent Vault & Backup Center</h2>
+            <p class="vault-subtitle">Automated rolling snapshots, JSON exports, and instant safety rollbacks</p>
+          </div>
+        </div>
+        <button id="btnCloseVaultModal" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="vault-actions-bar">
+          <button id="btnCreateSnapshot" type="button" class="btn btn-primary">
+            <span class="btn-icon">📸</span> Take Snapshot Now
+          </button>
+          <button id="btnExportVault" type="button" class="btn btn-secondary">
+            <span class="btn-icon">⬇</span> Export Full Vault (.json)
+          </button>
+          <label class="btn btn-outline file-upload-label">
+            <span class="btn-icon">⬆</span> Import Backup (.json)
+            <input type="file" id="importFileInput" accept=".json" class="hidden-file-input">
+          </label>
+        </div>
+
+        <div class="vault-status-card">
+          <div class="status-pill"><span class="dot-green"></span> Rolling Auto-Save: Active (Last 30 Snapshots Retained)</div>
+          <div id="vaultStatsText" class="vault-stats-text">Loading vault metrics...</div>
+        </div>
+
+        <h3 class="vault-section-title">Saved Snapshot Timeline</h3>
+        <div class="vault-timeline-container">
+          <table class="vault-table">
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Snapshot Name</th>
+                <th>Decks</th>
+                <th>Completion</th>
+                <th>Size</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="vaultTableBody">
+              <!-- Populated via JS -->
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
